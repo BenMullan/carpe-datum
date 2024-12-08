@@ -1,12 +1,13 @@
 # carpe-datum
 ...is a prototype headless-browser orchestration server (and impropper Latin for "seize the data").
+<br/><br/>
 
 > Watch the **["JavaScript in RPA" Video](https://youtu.be/PWyhuDJQEZw)!**
 <a href="https://youtu.be/PWyhuDJQEZw" target="_blank">
 	<img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/jsrpa-video-thumbnail.jpg" width="100%" />
 <a/>
 
-## What's going on
+## Err... what's going on
 I spent 5 months with a process-automation team. They used an amazing peice of [flowcharting software](https://www.google.com/search?q=blue+prism+automate+desktop+screenshot&tbm=isch) from 2003, 
 
 
