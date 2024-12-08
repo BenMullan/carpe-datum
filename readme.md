@@ -2,13 +2,14 @@
 ...is a prototype headless-browser orchestration server (and impropper Latin for "seize the data").
 <br/><br/>
 
-> Watch the **["JavaScript in RPA" Video](https://youtu.be/PWyhuDJQEZw)!**
+> Watch the **["JavaScript in RPA" YouTube Video](https://youtu.be/PWyhuDJQEZw)!**
 <a href="https://youtu.be/PWyhuDJQEZw" target="_blank">
 	<img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/jsrpa-video-thumbnail.jpg" width="100%" />
 <a/>
+<br/><br/>
 
 ## Err... what's going on
-I spent 5 months with a process-automation team. They used an amazing peice of [flowcharting software](https://www.google.com/search?q=blue+prism+automate+desktop+screenshot&tbm=isch) from 2003, 
+I spent 5 months with a process-automation team. They ran an amazing peice of [flowcharting software](https://www.google.com/search?q=blue+prism+automate+desktop+screenshot&tbm=isch) on a farm VMs, to simulate keystrokes and mouse-clicks and run business processes (eg data-entry into a web-based business system) automatically - without paying humans to perform them. This system was an at-once beguiling and stupyfying conflation of 
 
 
 **The concept**: a server hosts a pool of ~50 headless chromium browsers (running without a visible user-interface). A library of pre-defined baps (browser-automated processes - eg clicking through a series of steps on a webpage and scraping some output) exists on the server, which provides a http-API for triggering & scheduling the execution of baps on browsers from the pool. An easy-to-use UI enables live previews and interaction with all headless browsers. When a bap is executed, a full playwright trace is captured, recording the precise state of the DOM at each point during bap-execution.
