@@ -29,6 +29,7 @@ An easy-to-use UI with a library of pre-defined baps (browser-automated processe
 	<li>To use Blue Prism the most effectively, you need <b>in-depth programming knowledge</b> (ie Visual Basic, webpage structuring, and http APIs mechanisms). But if you have this, why remain tied to Blue Prism? You could escape the sluggishness, precarity, and extortionate cost - in exchange for free, unfettered, democratised code.</li>
 	<li>Suffice it to say, there exists a <b>skills-gap</b> between the disciplines of blue-prism-operation and playwright-scripting; a skills-gap likely to take <i>some time</i> to bridge in most working environments.</li>
 </ul>
+<br/>
 
 ## This project
 <img alt="code-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-dev-clear-code.png" width="100%" />
@@ -39,23 +40,23 @@ Amongst the **most important code** is...
 - http API endpoints [api/index.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/src/web-server/routes/api/index.ts)
 
 ### To use this software...
-- download [a zip of this repository](https://github.com/BenMullan/carpe-datum/archive/refs/heads/main.zip) and [node-js](https://nodejs.org/dist/v23.3.0/node-v23.3.0-x64.msi)
+- download [node-js](https://nodejs.org/dist/v23.3.0/node-v23.3.0-x64.msi) and [a zip of this repository](https://github.com/BenMullan/carpe-datum/archive/refs/heads/main.zip)
 - run `npm i` in `src/` and `cd-base/bap-library/`
-- in `cd-base/chromium/`, download [chromium binaries](https://playwright.azureedge.net/builds/chromium/1148/chromium-win64.zip), and put `chrome.exe` etc inside `./bin/`
+- in `cd-base/chromium/`, download [chromium binaries](https://playwright.azureedge.net/builds/chromium/1148/chromium-win64.zip), and put `chrome.exe` et cetera in `./bin/`
 - then run, using...
-	- `cd src/carpe-datum-service/` && `npx tsx main.ts` (should see "carpe-datum web server running on port 8192")
-	- run `node src\(resources)\extra-code\trigger-bap-execution-demo.js` to submit a http-request triggering a bap-execution
+	- `cd src/carpe-datum-service/` && `npx tsx main.ts`
+	- run `node src\(resources)\extra-code\trigger-bap-execution-demo.js` to trigger an example bap-execution
 
-### How it worketh...
+### How it worketh
 - A cd-server runs the `carpe-datum-service`, which listens for bap-execution http-api requests (on port 8192 by default).
 - The server maintains a pool of headless chromium instances, which are `comandeer()ed` and `relinquish()ed` as required by processes.
 - The server has a bap-library (a folder of playwright-scripts and process-data schema definitions, for different browser-based processes).
 - A client somewhere makes a `*start-new` execution POST request; this contains execution-parameters (eg whether to use a headed/headless browser) and process-input-data (eg the string to inject into the google-search box). The client can make a `*wait-for-exit` long-polling request to determine when the bap-execution has finished.
-- On receipt of a `*start-new` execution request (eg `POST /api/baps/google-search-demo/executions/*start-new`), the server validates the input-data against the schema defined for the specified bap, and creates a new [execution folder](https://github.com/BenMullan/carpe-datum/tree/main/cd-base/bap-library/google-search-demo/executions), with an `.execution-in-progress` flag file. A `bap-execution-worker` process is instanciated (eg `bap-execution-worker --cd-base-dir="..." --bap-name="google-search-demo" --execution-id="67f36fb23c9e" --target-browser-cdp-endpoint="http://localhost:9294"`), and the server vigilantly captures this child-process's stdout/err and exit-code.
+- On receipt of a `*start-new` execution request (eg `POST /api/baps/google-search-demo/executions/*start-new`), the server validates the input-data against [the schema](https://github.com/BenMullan/carpe-datum/blob/main/cd-base/bap-library/google-search-demo/process-data.schema.json) defined for the specified bap, and creates a new [execution folder](https://github.com/BenMullan/carpe-datum/tree/main/cd-base/bap-library/google-search-demo/executions), with an `.execution-in-progress` flag file. A [bap-execution-worker](https://github.com/BenMullan/carpe-datum/blob/main/src/bap-execution-worker/main.ts) process is instanciated (eg `bap-execution-worker --cd-base-dir="..." --bap-name="google-search-demo" --execution-id="67f36fb23c9e" --target-browser-cdp-endpoint="http://localhost:9294"`), and the server vigilantly captures this child-process's stdout/err and exit-code.
 - After execution, the execution endpoint (eg `GET /api/baps/google-search-demo/executions/67f36fb23c9e`) returns an object describing the execution-duration, -exit-reason, -error-state, and any process-output-data (eg a value scraped from the webpage).
 
 <br/>
-In other words, this system provides an interface for process input and output, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to see the process - and it doesn't even have to run on _your_ computer; as long as it has been robustly implemented in JavaScript, .
+<b>In other words</b>, this system provides an interface for a process's input and output, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without touching it once.
 
-<br/>
+<br/><br/><br/>
 _Ben Mullan 2024_
