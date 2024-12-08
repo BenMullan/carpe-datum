@@ -22,7 +22,12 @@ An easy-to-use UI with a library of pre-defined baps (browser-automated processe
 
 ## Learnings
 <img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/javascript-has-a-place-in-modern-rpa-discuss.jpg" width="100%" />
-*(if only that had come up in the A-level)*
+<i>(... if only that had come up in the A-level)</i>
+- For a process to be as robust as possible, it needs to interface with the system at the lowest available layer; javascript enables direct manipulation of the DOM underlying the UI.
+- To use Blue Prism the most effectively, you need in-depth programming knowledge (ie Visual Basic, webpage structuring, and http APIs mechanisms). But if you have this, why remain tied to Blue Prism? You could escape the sluggishness, precarity, and extortionate cost - in exchange for free, unfettered, democratised code.
+- Suffice it to say, there exists a skills-gap between the domains of blue-prism-operation and playwright scripting; a skills-gap likely to take <i>some time</i> to bridge.
+
+## This project
 
 <img alt="code-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-dev-clear-code.png" width="100%" />
 
