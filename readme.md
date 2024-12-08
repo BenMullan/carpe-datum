@@ -58,7 +58,7 @@ Amongst the **most important code** is...
 - After execution, the execution endpoint (eg `GET /api/baps/google-search-demo/executions/67f36fb23c9e`) returns an object describing the execution-duration, -exit-reason, -error-state, and any process-output-data (eg a value scraped from the webpage).
 
 <br/>
-<b>In other words</b>, this prototype provides an interface for a process's input and output, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without touching it once.
+<b>In other words</b>, this prototype provides an interface for a process's input and output, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without you touching it once.
 
 <br/><br/><br/>
 _Ben Mullan 2024_
