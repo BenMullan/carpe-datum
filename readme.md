@@ -47,7 +47,7 @@ Amongst the **most important code** is...
 - download [chromium binaries](https://playwright.azureedge.net/builds/chromium/1148/chromium-win64.zip), and put `chrome.exe` et cetera in `cd-base/chromium/bin/`
 - then run, using...
 	- `cd src/carpe-datum-service/` && `npx tsx main.ts`
-	- run `node src\(resources)\extra-code\trigger-bap-execution-demo.js` to trigger an example bap-execution
+	- run [`trigger-bap-execution-demo.js`](https://github.com/BenMullan/carpe-datum/blob/main/src/(resources)/extra-code/trigger-bap-execution-demo.js) to run the google-search-demo bap
 
 ### How it worketh
 - A cd-server runs the `carpe-datum-service`, which listens for bap-execution requests on a http-API.
