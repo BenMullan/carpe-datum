@@ -19,7 +19,7 @@ But it was precarious. Browsers would become detached during execution. It would
 An easy-to-use UI with a library of pre-defined baps (browser-automated processes - eg entering business data and scraping some output), and live previewing & interaction with the browser-pool. A http-API for triggering & scheduling bap executions on browsers from the pool. Robustly-implemented processes with watertight javascript, using [playwright](https://github.com/microsoft/playwright) to manipulate the DOM directly, instead of prodding at the UI from above. Execution traces capturing precise screenshots & DOM-state at each stage. Consistent, schema-validated process input- and output-data. (Oh, and you'd save ~£500,000 on Blue Prism lisencing costs too).
 
 <img alt="ui-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-bap-library.png" width="100%" />
-...and a <a href="https://github.com/BenMullan/carpe-datum/blob/4e06b37d26f5896245e5e50221f2f2cbc47fa455/src/carpe-datum-service/src/chromium/chromium-instance-collection.ts#L122">dynamically-sized</a> browser-pool...
+...and a <a href="https://github.com/BenMullan/carpe-datum/blob/4e06b37d26f5896245e5e50221f2f2cbc47fa455/src/carpe-datum-service/src/chromium/chromium-instance-collection.ts#L122">dynamically-sized</a> browser-pool...<br/>
 <img alt="ui-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-browser-pool.png" width="100%" />
 
 ## Learnings
