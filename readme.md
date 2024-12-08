@@ -23,6 +23,7 @@ An easy-to-use UI with a library of pre-defined baps (browser-automated processe
 ## Learnings
 <img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/javascript-has-a-place-in-modern-rpa-discuss.jpg" width="100%" />
 <i>(... if only that had come up in the A-level)</i>
+<br/>
 <ul>
 	<li>For a process to be as robust as possible, it needs to interface with the system at the lowest available layer; javascript enables direct manipulation of the DOM underlying the UI.</li>
 	<li>To use Blue Prism the most effectively, you need in-depth programming knowledge (ie Visual Basic, webpage structuring, and http APIs mechanisms). But if you have this, why remain tied to Blue Prism? You could escape the sluggishness, precarity, and extortionate cost - in exchange for free, unfettered, democratised code.</li>
@@ -38,7 +39,7 @@ Amongst the **most important code** is...
 - bap-execution logic: [bap-execution.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/src/bap-execution/bap-execution.ts)
 - http API endpoints [api/index.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/src/web-server/routes/api/index.ts)
 
-## To use this software...
+### To use this software...
 - `npx playwright install`
 - in cd-base/chromium/, download [chromium binaries](https://playwright.azureedge.net/builds/chromium/1148/chromium-win64.zip), and put chrome.exe etc inside ./bin/
 - `npm i` in cd-base/bap-library/ and src/
@@ -47,11 +48,12 @@ Amongst the **most important code** is...
 
 command-line arguments for carpe-datum-service: `--cd-base-dir` (absolute or relative path to cd-base/ - wherein bap-library/ etc), `--port`, `--browser-pool-initial-size`, `--browser-pool-max-size`, `--verbose` (for debugging)
 
-## How it worketh...
-- A cd-server runs the carpe-datum-service, which listens for bap-execution http-api requests (on port 8192 by default)
-- This server maintains a pool of headless chromium instances, which are `comandeer()ed` and `relinquish()ed` as required
-- The server has a bap-library (a folder of 
-- On receipt of a `*start-new` request, 
+### How it worketh...
+- A cd-server runs the `carpe-datum-service`, which listens for bap-execution http-api requests (on port 8192 by default)
+- The server maintains a pool of headless chromium instances, which are `comandeer()ed` and `relinquish()ed` as required by processes
+- The server has a bap-library (a folder of playwright-scripts and process-data schema definitions, for different browser-based processes)
+- On receipt of a `*start-new` execution request, a 
+- After execution, * is avaliable
 
 - A new execution is created in `cd-base/bap-library/<bap-name>/executions/`
 
