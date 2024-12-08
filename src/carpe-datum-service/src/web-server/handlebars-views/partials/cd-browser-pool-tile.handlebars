@@ -1,0 +1,17 @@
+{{!-- hydrated with an object of type <cdApiTypes.BrowserPoolBrowser> --}}
+
+<li class="cd-tile" data-cdp-port="{{remote_debugging_port}}" data-is-idle="{{#if current_executee}}false{{else}}true{{/if}}">
+
+	<div class="cd-tile-upper-half">
+		<img src="/assets/images/loading.svg" alt="loading..." class="loading-img" />
+	</div>
+
+	<div class="cd-tile-lower-half">
+		<b class="title-text">#{{remote_debugging_port}}</b>
+		<a href="/ui/bap-library{{#if current_executee}}/{{current_executee.bap_name}}{{/if}}" class="subtle-link" title="goto this bap/bap-library...">
+			{{#if current_executee}} executing "{{current_executee.bap_name}}" {{else}} idle {{/if}}
+		</a>
+		<i class="subtle-link">{{#if current_executee}}stage: {{current_executee.current_execution_stage}}{{/if}}</i>
+	</div>
+
+</li>

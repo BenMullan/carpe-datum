@@ -1,0 +1,18 @@
+<script src="/assets/javascript/browser-pool.js" />
+
+<section class="cd-tiles-section">
+	<ul class="cd-tiles-container" id="browser-pool-tiles-container">
+
+		<script> $(window).on("load", loadBrowserPoolTiles); </script>
+
+		<li class="cd-tile fade-in-slow" id="launch-new-browser-tile">
+			<a href="javascript:showInfoMessage(`haven't quite gotten round to implementing that feature (use --browser-pool-initial/max-size=x for carpe-datum-service/main.ts)`, `slightly embarrasing...`);" class="no-link-underline">
+				<p class="huge-text-icon" style="margin-top: -25px; margin-bottom: -0px;">+</p>
+				<div class="cd-tile-lower-half">
+					<b class="title-text">launch new...</b>
+				</div>
+			</a>
+		</li>
+
+	</ul>
+</section>

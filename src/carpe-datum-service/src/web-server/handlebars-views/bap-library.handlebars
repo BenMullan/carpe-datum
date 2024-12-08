@@ -1,0 +1,22 @@
+<script src="/assets/javascript/bap-library.js" />
+
+<section class="cd-tiles-section">
+	<ul class="cd-tiles-container">
+
+		{{#each bapList}}
+			{{> cd-bap-tile this}}
+		{{/each}}
+		
+		{{!-- ...and the [+] "record new..." tile --}}
+		<li class="cd-tile fade-in-slow">
+			<a href="javascript:createNewBap();" class="no-link-underline">
+				<p class="huge-text-icon" style="margin-top: -25px; margin-bottom: -0px;"> + </p>
+				<div class="cd-tile-lower-half">
+					<b class="title-text">record new...</b>
+					<a class="subtle-link">&nbsp;</a>
+				</div>
+			</a>
+		</li>
+
+	</ul>
+</section>

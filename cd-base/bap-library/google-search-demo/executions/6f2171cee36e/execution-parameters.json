@@ -1,0 +1,8 @@
+{
+	"target_browser": {
+		"type": "detached_headed_browser",
+		"leave_detached_headed_browser_open": true
+	},
+	"run_bap_in_slowmo": false,
+	"cd_api_server": "http://localhost:8192"
+}

@@ -1,0 +1,18 @@
+{{!-- hydrated with an object of type <"bapObject" of type <cdApi.Bap>> --}}
+
+<section class="">
+
+	<p>
+		<h3>{{bapObject.name}}</h3>
+		<br/>
+		{{getArrayLength bapObject.executions}} executions
+	</p>
+
+	<ul class="">
+
+		{{#each bapObject.executions}}
+			{{> cd-execution-row this}}
+		{{/each}}
+
+	</ul>
+</section>

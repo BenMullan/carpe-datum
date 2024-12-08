@@ -1,0 +1,19 @@
+{
+
+	"input_data_schema" : {
+		"type" : "object",
+		"properties" : {
+			"search_string"		: { "type" : "string" }
+		},
+		"required" : ["search_string"]
+	},
+
+	"output_data_schema" : {
+		"type" : "object",
+		"properties" : {
+			"first_result_url"	: { "type" : "string" }
+		},
+		"required" : []
+	}
+
+}

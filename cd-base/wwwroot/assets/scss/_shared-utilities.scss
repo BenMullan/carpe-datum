@@ -1,0 +1,44 @@
+/*
+	File:		* - sass stylesheet for common/shared classes
+	Author:		Ben Mullan (c) 2024
+*/
+
+@use "./_vars.scss";
+
+.title-text {
+	font-weight:		700;
+	color:				vars.$c-off-black;
+}
+
+.no-link-underline		{ text-decoration: none; }
+
+.subtle-link {
+	@extend				.no-link-underline;
+	color:				vars.$c-light-grey;
+	font-size:			smaller;
+}
+
+.loading-img {
+	display:			inline;
+	width:				6em;
+	margin-top:			0.8rem;
+}
+
+.huge-text-icon {
+	text-align:			center;
+	font-family:		Verdana, Geneva, Tahoma, sans-serif;
+	font-size:			7em;
+	color:				vars.$c-almost-white;
+}
+
+@keyframes fadeInAnimation { to { opacity: 1; } }
+
+.fade-in-fast {
+	opacity:			0;
+	animation:			fadeInAnimation 1s forwards;
+}
+
+.fade-in-slow {
+	opacity:			0;
+	animation:			fadeInAnimation 2.5s forwards;
+}

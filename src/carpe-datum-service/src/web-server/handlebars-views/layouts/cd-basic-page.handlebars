@@ -1,0 +1,46 @@
+<!--
+	File:	*.xhtml - main page template for carpe-datum /ui
+	Author:	Ben Mullan (c) 2024
+-->
+
+{{!-- without these two hrefs, escape-sequences like &nbsp; don't work... --}}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		
+		<title>{{pageTitle}}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="stylesheet" href="/assets/css/lib-sweetalert2-theme-borderless.css" />
+		<link rel="stylesheet" href="/assets/css/main.css" />
+
+		<script src="/assets/javascript/lib-sweetalert2.min.js" />
+		<script src="/assets/javascript/lib-handlebars.min.js" />
+		<script src="/assets/javascript/lib-jquery.min.js" />
+		<script src="/assets/javascript/main.js" />
+		
+	</head>
+	<body class="fade-in-fast">
+		
+		<header>
+			<h1>
+				<a href="/">
+					<img src="/assets/images/carpe-datum-512.png" alt="logo" title="carpe-datum home" class="heading-icon" />
+				</a>
+				<span class="heading-slash">/</span>
+				<span class="heading-text">{{mainHeading}}</span>
+			</h1>
+		</header>
+		
+		<main>
+			{{{body}}}
+		</main>
+		
+		<footer>
+			<span>Ben Mullan © 2024</span>
+		</footer>
+		
+	</body>
+</html>

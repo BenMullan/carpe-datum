@@ -1,0 +1,23 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "attach to existing node process",
+			"processId": "${command:PickProcess}",
+			"request": "attach",
+			"skipFiles": ["<node_internals>/**"],
+			"type": "node"
+		},
+		{
+			"name": "start carpe-datum-service/main.ts",
+			"type": "node",
+			"request": "launch",
+			"runtimeExecutable": "tsx",
+			"args": ["--inspect", "./src/carpe-datum-service/main.ts", "--cd-base-dir=./cd-base/", "--browser-pool-initial-size=1", "--browser-pool-max-size=2", "--port=8192"],
+			"skipFiles": ["<node_internals>/**"],
+			"outputCapture": "std",
+			"resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"],
+			"sourceMaps": true
+		}
+	]
+}

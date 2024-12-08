@@ -1,0 +1,118 @@
+/*
+	File:		main.scss - sass stylesheet for carpe-datum web user-interface
+	Transpile:	npx sass main.scss:main.css
+	Author:		Ben Mullan (c) 2024
+*/
+
+@use "./_vars.scss";
+@use "./_shared-utilities.scss";
+@use "./_reset-browser-defaults.scss";
+
+@font-face {
+	font-family:		"Quicksand";
+	font-display:		swap;
+	font-weight:		500;
+	src:				url("/assets/fonts/quicksand-variable-wght.ttf") format("truetype");
+}
+
+body {
+	
+	font-family:		"Quicksand", Verdana, sans-serif;
+	font-weight:		500;
+	color:				vars.$c-dark-grey;
+		
+	// vertical-distribution
+	// of header-main-footer
+	min-height:			100vh;
+	display:			grid;
+	grid-template-rows: auto 1fr auto;
+	
+}
+
+header {
+	text-align:			center;
+	& h1				{ display: inline-flex; align-items: center; margin: 1rem; font-weight: 600; }
+	& .heading-icon		{ display: inline; width: 2.5rem; padding-top: 0.6rem; }
+	& .heading-slash	{ margin-left: 0.2rem; margin-right: 0.4rem; }
+}
+
+footer {
+	text-align:			center;
+	margin-bottom:		0.5rem;
+	color:				vars.$c-light-grey;
+	& > span			{ font-size: small; }
+}
+
+.cd-tiles-section {
+
+	display:			flex;
+	justify-content:	center;
+	align-items:		center;
+
+	& .cd-tiles-container {
+	
+		width:				100%;
+		@media				(min-width :600px)	{ width: 85%; }
+		@media				(min-width :800px)	{ width: 70%; }
+		@media				(min-width :1000px)	{ width: 75%; }
+		@media				(min-width :1300px)	{ width: 70%; }
+		@media				(min-width :1600px)	{ width: 65%; }
+		
+		padding:			2rem 1rem;
+		list-style:			none;
+		overflow-y:			auto;
+		display:			flex;
+		justify-content:	flex-start;
+		flex-wrap:			wrap;
+		gap:				2rem;
+
+		& .cd-tile {
+		
+			list-style:			none;
+			display:			flex;
+			flex-direction:		column;
+			justify-content:	space-between;
+			overflow:			hidden;
+			padding:			0.4rem;
+		
+			border:				1px solid vars.$c-light-grey;
+			border-radius:		7px;
+			background-color:	vars.$c-yellow-soft;
+			box-shadow:			0 4px 12px rgba(0, 0, 0, 0.2);
+		
+			width: 				16rem;
+			height:				auto;
+
+			transition:			transform 0.15s;
+			&:hover				{ transform: matrix3d(1, 0, 0, 0, 0, 1, 0, -0.0001, 0, 0, 1, 0.0004, 0, 0, 50, 1) rotateX(0deg) rotateY(15deg); }
+
+			& .cd-tile-upper-half {
+
+				display:			flex;
+				justify-content:	center;
+				border-radius:		inherit;
+
+				& .cd-tile-upper-image {
+
+					border-radius:		inherit;
+					border-bottom:		1px solid vars.$c-light-grey;
+					// margin-bottom:		1rem;
+	
+				}
+
+			}
+
+			& .cd-tile-lower-half {
+
+				display:			flex;
+				flex-direction:		column;
+				gap:				0.05em;
+				margin:				0.5rem 0.6rem;
+
+			}
+
+		}
+
+	}
+
+}

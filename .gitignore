@@ -1,0 +1,7 @@
+node_modules/
+
+cd-base/chromium/bin/**
+!cd-base/chromium/bin/.gitkeep
+
+cd-base/chromium/user-data-dirs/**
+!cd-base/chromium/user-data-dirs/.gitkeep
