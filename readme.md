@@ -11,15 +11,17 @@
 ## Err... what's going on
 I spent 5 months with a process-automation team. They ran an amazing peice of [flowcharting software](https://www.google.com/search?q=blue+prism+automate+desktop+screenshot&tbm=isch) on a farm of VMs, to simulate keystrokes and mouse-clicks - and run processes (eg data-entry into a web-based business system) automatically, without paying humans to perform them. This system was an at-once beguiling and stupyfying conflation of numerous bizzare and anachronistic technologies; Win32-spying, .NET Remoting, remote DOM-inspection, VB6-style expression functions, and even Visual J#!
 <br/><br/>
-But it was precarious. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. You couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong.
+But it was precarious. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. It couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong.
 
-## *JavaScript* you say?
-**Imagine:** instead of 50 VMs; one server, and 50 headless browsers. An easy-to-use UI with a library of pre-defined baps (browser-automated processes - eg entering business data and scraping some output), and live previewing & interaction with the browser-pool. A http-API for triggering & scheduling the execution of baps, on browsers from the pool. Robustly-implemented processes with watertight javascript, using [playwright](https://github.com/microsoft/playwright) to manipulate the DOM directly, instead of prodding at the UI from above. Execution traces precisely capturing screenshots & the DOM-state at each stage. (Oh, and you'd save ~£500,000 on Blue Prism lisencing costs too).
+## *JavaScript* you say...?
+**Imagine:** instead of 50 VMs; one server, and 50 headless browsers.
+<br/>An easy-to-use UI with a library of pre-defined baps (browser-automated processes - eg entering business data and scraping some output), and live previewing & interaction with the browser-pool. A http-API for triggering & scheduling the execution of baps, on browsers from the pool. Robustly-implemented processes with watertight javascript, using [playwright](https://github.com/microsoft/playwright) to manipulate the DOM directly, instead of prodding at the UI from above. Execution traces precisely capturing screenshots & the DOM-state at each stage. (Oh, and you'd save ~£500,000 on Blue Prism lisencing costs too).
 
-<img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-bap-library.png" width="100%" />
-<img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-browser-pool.png" width="100%" />
-<img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-dev-clear-code.png" width="100%" />
-<img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/javascript-has-a-place-in-modern-rpa-discuss.jpg" height="50%" width="50%" />
+<img alt="ui-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-bap-library.png" width="100%" />
+<img alt="ui-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-browser-pool.png" width="100%" />
+<img alt="code-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-dev-clear-code.png" width="100%" />
+
+
 
 Amongst the **most important code** is...
 - cd-server entrypoint: [main.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/main.ts)
@@ -27,6 +29,7 @@ Amongst the **most important code** is...
 - http API endpoints [api/index.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/src/web-server/routes/api/index.ts)
 
 ## Key principles
+<img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/javascript-has-a-place-in-modern-rpa-discuss.jpg" width="50%" />
 
 
 
