@@ -2,7 +2,7 @@
 ...is a prototype headless-browser orchestration server (impropper Latin for "seize the data")
 
 > Watch the [**"JavaScript in RPA" Video**](https://youtu.be/PWyhuDJQEZw)!<br/>
-[![jsrpa-video](https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/resources/images/jsrpa-video-thumbnail.png)](https://www.youtube.com/watch?v=VIDEO_ID)
+[![jsrpa-video](https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/resources/images/jsrpa-video-thumbnail.png)](https://youtu.be/PWyhuDJQEZw)
 
 **The concept**: a server hosts a pool of ~50 headless chromium browsers (running without a visible user-interface). A library of pre-defined baps (browser-automated processes - eg clicking through a series of steps on a webpage and scraping some output) exists on the server, which provides a http-API for triggering & scheduling the execution of baps on browsers from the pool. An easy-to-use UI enables live previews and interaction with all headless browsers. When a bap is executed, a full playwright trace is captured, recording the precise state of the DOM at each point during bap-execution.
 
@@ -10,10 +10,10 @@
 
 ## Key principles
 
-<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/resources/images/cd-bap-library.png" height="50%" width="50%" /><br/>
-<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/resources/images/cd-browser-pool.png" height="50%" width="50%" /><br/>
-<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/resources/images/cd-dev-clear-code.png" height="50%" width="50%" /><br/>
-<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/resources/javascript-has-a-place-in-modern-rpa-discuss.jpg" height="50%" width="50%" /><br/>
+<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-bap-library.png" height="50%" width="50%" /><br/>
+<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-browser-pool.png" height="50%" width="50%" /><br/>
+<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-dev-clear-code.png" height="50%" width="50%" /><br/>
+<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/javascript-has-a-place-in-modern-rpa-discuss.jpg" height="50%" width="50%" /><br/>
 
 
 ## To use this software...
