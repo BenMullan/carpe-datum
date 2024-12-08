@@ -1,5 +1,5 @@
 # carpe-datum
-...is a prototype headless-browser orchestration server (and impropper Latin for "seize the data").
+...is a **prototype** headless-browser orchestration server (and impropper Latin for "seize the data").
 <br/><br/>
 
 > Watch the **["JavaScript in RPA" YouTube Video](https://youtu.be/PWyhuDJQEZw)!**
@@ -48,15 +48,15 @@ Amongst the **most important code** is...
 	- run `node src\(resources)\extra-code\trigger-bap-execution-demo.js` to trigger an example bap-execution
 
 ### How it worketh
-- A cd-server runs the `carpe-datum-service`, which listens for bap-execution http-api requests (on port 8192 by default).
-- The server maintains a pool of headless chromium instances, which are `comandeer()ed` and `relinquish()ed` as required by processes.
+- A cd-server runs the `carpe-datum-service`, which listens for bap-execution requests on a http-API.
+- The server maintains a pool of headless chromium instances, which are `comandeer()ed` and `relinquish()ed` as required.
 - The server has a bap-library (a folder of playwright-scripts and process-data schema definitions, for different browser-based processes).
 - A client somewhere makes a `*start-new` execution POST request; this contains execution-parameters (eg whether to use a headed/headless browser) and process-input-data (eg the string to inject into the google-search box). The client can make a `*wait-for-exit` long-polling request to determine when the bap-execution has finished.
 - On receipt of a `*start-new` execution request (eg `POST /api/baps/google-search-demo/executions/*start-new`), the server validates the input-data against [the schema](https://github.com/BenMullan/carpe-datum/blob/main/cd-base/bap-library/google-search-demo/process-data.schema.json) defined for the specified bap, and creates a new [execution folder](https://github.com/BenMullan/carpe-datum/tree/main/cd-base/bap-library/google-search-demo/executions), with an `.execution-in-progress` flag file. A [bap-execution-worker](https://github.com/BenMullan/carpe-datum/blob/main/src/bap-execution-worker/main.ts) process is instanciated (eg `bap-execution-worker --cd-base-dir="..." --bap-name="google-search-demo" --execution-id="67f36fb23c9e" --target-browser-cdp-endpoint="http://localhost:9294"`), and the server vigilantly captures this child-process's stdout/err and exit-code.
 - After execution, the execution endpoint (eg `GET /api/baps/google-search-demo/executions/67f36fb23c9e`) returns an object describing the execution-duration, -exit-reason, -error-state, and any process-output-data (eg a value scraped from the webpage).
 
 <br/>
-<b>In other words</b>, this system provides an interface for a process's input and output, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without touching it once.
+<b>In other words</b>, this prototype provides an interface for a process's input and output, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without touching it once.
 
 <br/><br/><br/>
 _Ben Mullan 2024_
