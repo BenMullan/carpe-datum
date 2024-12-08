@@ -12,7 +12,7 @@
 I spent 5 months with a process-automation team. They ran an amazing peice of [flowcharting software](https://www.google.com/search?q=blue+prism+automate+desktop+screenshot&tbm=isch) on a farm of VMs, to simulate keystrokes and mouse-clicks - and run processes (eg data-entry into a web-based business system) automatically, without paying humans to perform them. This system was an at-once beguiling and stupyfying conflation of numerous bizzare and anachronistic technologies; Win32-spying, .NET Remoting, remote DOM-inspection, VB6-style expression functions, and even Visual J#!
 <br/><br/>
 But it was precarious. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. It couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong. Data would be perilously plucked from inconsistenyly-formatted excel spreadsheets, and run through fragile type-coercion.
-<br/>
+<br/><br/>
 
 ## *JavaScript* you say...?
 **Imagine:** instead of 50 VMs; one server, and 50 headless browsers.<br/><br/>
