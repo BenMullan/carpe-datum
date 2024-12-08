@@ -14,15 +14,15 @@ I spent 5 months with a process-automation team. They ran an amazing peice of [f
 But it was precarious. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. It couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong. Data would be perilously plucked from inconsistenyly-formatted excel spreadsheets, and run through fragile type-coercion.
 
 ## *JavaScript* you say...?
-<p>**Imagine:** instead of 50 VMs; one server, and 50 headless browsers.</p>
-<p>An easy-to-use UI with a library of pre-defined baps (browser-automated processes - eg entering business data and scraping some output), and live previewing & interaction with the browser-pool. A http-API for triggering & scheduling bap executions on browsers from the pool. Robustly-implemented processes with watertight javascript, using [playwright](https://github.com/microsoft/playwright) to manipulate the DOM directly, instead of prodding at the UI from above. Execution traces precisely capturing screenshots & the DOM-state at each stage. Consistent, schema-validated process input- and output-data. (Oh, and you'd save ~£500,000 on Blue Prism lisencing costs too).</p>
+**Imagine:** instead of 50 VMs; one server, and 50 headless browsers.<br/><br/>
+An easy-to-use UI with a library of pre-defined baps (browser-automated processes - eg entering business data and scraping some output), and live previewing & interaction with the browser-pool. A http-API for triggering & scheduling bap executions on browsers from the pool. Robustly-implemented processes with watertight javascript, using [playwright](https://github.com/microsoft/playwright) to manipulate the DOM directly, instead of prodding at the UI from above. Execution traces precisely capturing screenshots & the DOM-state at each stage. Consistent, schema-validated process input- and output-data. (Oh, and you'd save ~£500,000 on Blue Prism lisencing costs too).
 
 <img alt="ui-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-bap-library.png" width="100%" />
 <img alt="ui-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-browser-pool.png" width="100%" />
 
-## Key principles
+## Learnings
 <img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/javascript-has-a-place-in-modern-rpa-discuss.jpg" width="100%" />
-
+*(if only that had come up in the A-level)*
 
 <img alt="code-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-dev-clear-code.png" width="100%" />
 
