@@ -16,6 +16,10 @@ But it was precarious. Browsers would become detached during execution. It would
 ## *JavaScript* you say?
 **Imagine:** instead of 50 VMs; one server, and 50 headless browsers. An easy-to-use UI with a library of pre-defined baps (browser-automated processes - eg entering business data and scraping some output), and live previewing & interaction with the browser-pool. A http-API for triggering & scheduling the execution of baps, on browsers from the pool. Robustly-implemented processes with watertight javascript, using [playwright](https://github.com/microsoft/playwright) to manipulate the DOM directly, instead of prodding at the UI from above. Execution traces precisely capturing screenshots & the DOM-state at each stage. (Oh, and you'd save ~£500,000 on Blue Prism lisencing costs too).
 
+<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-bap-library.png" width="100%" /><br/>
+<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-browser-pool.png" width="100%" /><br/>
+<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-dev-clear-code.png" width="100%" /><br/>
+<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/javascript-has-a-place-in-modern-rpa-discuss.jpg" height="50%" width="50%" /><br/>
 
 Amongst the **most important code** is...
 - cd-server entrypoint: [main.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/main.ts)
@@ -24,10 +28,6 @@ Amongst the **most important code** is...
 
 ## Key principles
 
-<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-bap-library.png" width="100%" /><br/>
-<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-browser-pool.png" width="100%" /><br/>
-<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-dev-clear-code.png" width="100%" /><br/>
-<br/><img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/javascript-has-a-place-in-modern-rpa-discuss.jpg" height="50%" width="50%" /><br/>
 
 
 ## To use this software...
