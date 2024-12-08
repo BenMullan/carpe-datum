@@ -11,7 +11,7 @@
 ## Err... what's going on
 I spent 5 months with a process-automation team. They ran an amazing peice of [flowcharting software](https://www.google.com/search?q=blue+prism+automate+desktop+screenshot&tbm=isch) on a farm of VMs, to simulate keystrokes and mouse-clicks - and run processes (eg data-entry into a web-based business system) automatically, without paying humans to perform them. This system was an at-once beguiling and stupyfying conflation of numerous bizzare and anachronistic technologies; Win32-spying, .NET Remoting, remote DOM-inspection, VB6-style expression functions, and even Visual J#!
 <br/><br/>
-But it was **precarious**. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. It couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong. Data would be perilously plucked from inconsistenyly-formatted excel spreadsheets, and run through fragile type-coercion.
+But it was precarious. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. It couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong. Data would be perilously plucked from inconsistenyly-formatted excel spreadsheets, and run through fragile type-coercion.
 
 ## *JavaScript* you say...?
 **Imagine:** instead of 50 VMs; one server, and 50 headless browsers.<br/><br/>
@@ -39,63 +39,23 @@ Amongst the **most important code** is...
 - http API endpoints [api/index.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/src/web-server/routes/api/index.ts)
 
 ### To use this software...
-- download [a zip of this repository](https://github.com/BenMullan/carpe-datum/archive/refs/heads/main.zip)
-- `npx playwright install`
-- in cd-base/chromium/, download [chromium binaries](https://playwright.azureedge.net/builds/chromium/1148/chromium-win64.zip), and put chrome.exe etc inside ./bin/
-- `npm i` in cd-base/bap-library/ and src/
-- `cd src/carpe-datum-service/ && npx tsx main.ts` (should see "carpe-datum web server running on port 8192")
-- submit a http-request to trigger a bap-execution (example in `src\(resources)\extra-code\trigger-bap-execution-demo.js`)
-
-command-line arguments for carpe-datum-service: `--cd-base-dir` (absolute or relative path to cd-base/ - wherein bap-library/ etc), `--port`, `--browser-pool-initial-size`, `--browser-pool-max-size`, `--verbose` (for debugging)
+- download [a zip of this repository](https://github.com/BenMullan/carpe-datum/archive/refs/heads/main.zip) and [node-js](https://nodejs.org/dist/v23.3.0/node-v23.3.0-x64.msi)
+- run `npm i` in `src/` and `cd-base/bap-library/`
+- in `cd-base/chromium/`, download [chromium binaries](https://playwright.azureedge.net/builds/chromium/1148/chromium-win64.zip), and put `chrome.exe` etc inside `./bin/`
+- then run, using...
+	- `cd src/carpe-datum-service/` && `npx tsx main.ts` (should see "carpe-datum web server running on port 8192")
+	- run `node src\(resources)\extra-code\trigger-bap-execution-demo.js` to submit a http-request triggering a bap-execution
 
 ### How it worketh...
-- A cd-server runs the `carpe-datum-service`, which listens for bap-execution http-api requests (on port 8192 by default)
-- The server maintains a pool of headless chromium instances, which are `comandeer()ed` and `relinquish()ed` as required by processes
-- The server has a bap-library (a folder of playwright-scripts and process-data schema definitions, for different browser-based processes)
-- On receipt of a `*start-new` execution request, a 
-- After execution, * is avaliable
+- A cd-server runs the `carpe-datum-service`, which listens for bap-execution http-api requests (on port 8192 by default).
+- The server maintains a pool of headless chromium instances, which are `comandeer()ed` and `relinquish()ed` as required by processes.
+- The server has a bap-library (a folder of playwright-scripts and process-data schema definitions, for different browser-based processes).
+- A client somewhere makes a `*start-new` execution POST request; this contains execution-parameters (eg whether to use a headed/headless browser) and process-input-data (eg the string to inject into the google-search box). The client can make a `*wait-for-exit` long-polling request to determine when the bap-execution has finished.
+- On receipt of a `*start-new` execution request (eg `POST /api/baps/google-search-demo/executions/*start-new`), the server validates the input-data against the schema defined for the specified bap, and creates a new [execution folder](https://github.com/BenMullan/carpe-datum/tree/main/cd-base/bap-library/google-search-demo/executions), with an `.execution-in-progress` flag file. A `bap-execution-worker` process is instanciated (eg `bap-execution-worker --cd-base-dir="..." --bap-name="google-search-demo" --execution-id="67f36fb23c9e" --target-browser-cdp-endpoint="http://localhost:9294"`), and the server vigilantly captures this child-process's stdout/err and exit-code.
+- After execution, the execution endpoint (eg `GET /api/baps/google-search-demo/executions/67f36fb23c9e`) returns an object describing the execution-duration, -exit-reason, -error-state, and any process-output-data (eg a value scraped from the webpage).
 
-- A new execution is created in `cd-base/bap-library/<bap-name>/executions/`
+<br/>
+In other words, this system provides an interface for process input and output, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to see the process - and it doesn't even have to run on _your_ computer; as long as it has been robustly implemented in JavaScript, .
 
-
-
-		- request made to /api/baps/:bapName/executions/*start-new
-			with execution-init-json in body
-
-			- the api endpoint should then...
-				- create a new execution-id & eponymous execution-folder
-				- validate the input-payload json against the [process-data.schema.json]
-				- save the [input-payload.json] in the execution-folder
-				- get an carpe-datum available browser cdp-endpoint
-
-				- instanciate the bap-execution-worker script, like...
-					bap-execution-worker --cd-base-dir="..." --bap-name="google-search-demo" --execution-id="67f36fb23c9e" --target-browser-cdp-endpoint="http://localhost:9294"
-					...capturing the stdout/stderr in Buffer chunks
-
-				- respond with a BapExecution object (execution-id, status, ...)
-
-				- when the bap-execution-worker script finishes...
-					- relinquish() the chromium-instance
-					- if the exit-code is 0|1|2, that's fine.
-					- if the exit-code is anything else, create [.execution-error] in the execution-folder, logging the stdout/stderr
-		
-		example execution-init-json...
-			{
-				"input_payload" : {
-					"input_data" : {
-						"username"		: "somat",
-						"password"		: "else",
-						"claim_ref"		: "ABC123"
-					}
-				},
-				"execution_parameters"	: {
-					"target_browser"	: {
-						"type"			: "remote_cdp_browser",
-						"cdp_endpoint"	: null
-					}
-				}
-			}
-
-
-Mallard icon from iconarchive.com
+<br/>
 _Ben Mullan 2024_
