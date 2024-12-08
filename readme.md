@@ -13,12 +13,15 @@ I spent 5 months with a process-automation team. They ran an amazing peice of [f
 <br/><br/>
 But it was precarious. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. You couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause particular unattended executions to fail, and it would be near-impossible to catch what went wrong.
 
-## *javascript*? Explain yourself.
-**Imagine:** instead of a 
+## *JavaScript* you say?
+**Imagine:** instead of 50 VMs; one server. Instead of 
 
 **The concept**: a server hosts a pool of ~50 headless chromium browsers (running without a visible user-interface). A library of pre-defined baps (browser-automated processes - eg clicking through a series of steps on a webpage and scraping some output) exists on the server, which provides a http-API for triggering & scheduling the execution of baps on browsers from the pool. An easy-to-use UI enables live previews and interaction with all headless browsers. When a bap is executed, a full playwright trace is captured, recording the precise state of the DOM at each point during bap-execution.
 
-**This was inspired by** using 
+Some of the **most important code** is...
+- cd-server entrypoint: [main.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/main.ts)
+- bap-execution logic: [bap-execution.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/src/bap-execution/bap-execution.ts)
+- http API endpoints [api/index.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/src/web-server/routes/api/index.ts)
 
 ## Key principles
 
