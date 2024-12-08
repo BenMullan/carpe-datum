@@ -11,27 +11,26 @@
 ## Err... what's going on
 I spent 5 months with a process-automation team. They ran an amazing peice of [flowcharting software](https://www.google.com/search?q=blue+prism+automate+desktop+screenshot&tbm=isch) on a farm of VMs, to simulate keystrokes and mouse-clicks - and run processes (eg data-entry into a web-based business system) automatically, without paying humans to perform them. This system was an at-once beguiling and stupyfying conflation of numerous bizzare and anachronistic technologies; Win32-spying, .NET Remoting, remote DOM-inspection, VB6-style expression functions, and even Visual J#!
 <br/><br/>
-But it was precarious. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. It couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong. Data would be perilously plucked from inconsistenyly-formatted excel spreadsheets, and run through fragile type-coercion.
+But it was **precarious**. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. It couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong. Data would be perilously plucked from inconsistenyly-formatted excel spreadsheets, and run through fragile type-coercion.
 
 ## *JavaScript* you say...?
 **Imagine:** instead of 50 VMs; one server, and 50 headless browsers.<br/><br/>
-An easy-to-use UI with a library of pre-defined baps (browser-automated processes - eg entering business data and scraping some output), and live previewing & interaction with the browser-pool. A http-API for triggering & scheduling bap executions on browsers from the pool. Robustly-implemented processes with watertight javascript, using [playwright](https://github.com/microsoft/playwright) to manipulate the DOM directly, instead of prodding at the UI from above. Execution traces precisely capturing screenshots & the DOM-state at each stage. Consistent, schema-validated process input- and output-data. (Oh, and you'd save ~£500,000 on Blue Prism lisencing costs too).
+An easy-to-use UI with a library of pre-defined baps (browser-automated processes - eg entering business data and scraping some output), and live previewing & interaction with the browser-pool. A http-API for triggering & scheduling bap executions on browsers from the pool. Robustly-implemented processes with watertight javascript, using [playwright](https://github.com/microsoft/playwright) to manipulate the DOM directly, instead of prodding at the UI from above. Execution traces capturing precise screenshots & DOM-state at each stage. Consistent, schema-validated process input- and output-data. (Oh, and you'd save ~£500,000 on Blue Prism lisencing costs too).
 
 <img alt="ui-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-bap-library.png" width="100%" />
 <img alt="ui-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-browser-pool.png" width="100%" />
 
 ## Learnings
+<i>if only this one had come up in the A-level...</i>
 <img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/javascript-has-a-place-in-modern-rpa-discuss.jpg" width="100%" />
-<i>(... if only that had come up in the A-level)</i>
 <br/>
 <ul>
-	<li>For a process to be as robust as possible, it needs to interface with the system at the lowest available layer; javascript enables direct manipulation of the DOM underlying the UI.</li>
-	<li>To use Blue Prism the most effectively, you need in-depth programming knowledge (ie Visual Basic, webpage structuring, and http APIs mechanisms). But if you have this, why remain tied to Blue Prism? You could escape the sluggishness, precarity, and extortionate cost - in exchange for free, unfettered, democratised code.</li>
-	<li>Suffice it to say, there exists a skills-gap between the domains of blue-prism-operation and playwright scripting; a skills-gap likely to take <i>some time</i> to bridge.</li>
+	<li>For a process to run as robustly as possible, it needs to interface with the system at the <b>lowest available layer</b>; javascript enables direct manipulation of the DOM underlying the UI.</li>
+	<li>To use Blue Prism the most effectively, you need <b>in-depth programming knowledge</b> (ie Visual Basic, webpage structuring, and http APIs mechanisms). But if you have this, why remain tied to Blue Prism? You could escape the sluggishness, precarity, and extortionate cost - in exchange for free, unfettered, democratised code.</li>
+	<li>Suffice it to say, there exists a <b>skills-gap</b> between the disciplines of blue-prism-operation and playwright-scripting; a skills-gap likely to take <i>some time</i> to bridge in most working environments.</li>
 </ul>
 
 ## This project
-
 <img alt="code-screenshot" src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/cd-dev-clear-code.png" width="100%" />
 
 Amongst the **most important code** is...
@@ -40,6 +39,7 @@ Amongst the **most important code** is...
 - http API endpoints [api/index.ts](https://github.com/BenMullan/carpe-datum/blob/main/src/carpe-datum-service/src/web-server/routes/api/index.ts)
 
 ### To use this software...
+- download [a zip of this repository](https://github.com/BenMullan/carpe-datum/archive/refs/heads/main.zip)
 - `npx playwright install`
 - in cd-base/chromium/, download [chromium binaries](https://playwright.azureedge.net/builds/chromium/1148/chromium-win64.zip), and put chrome.exe etc inside ./bin/
 - `npm i` in cd-base/bap-library/ and src/
