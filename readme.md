@@ -50,7 +50,7 @@ Amongst the **most important code** is...
 - download [chromium binaries](https://playwright.azureedge.net/builds/chromium/1148/chromium-win64.zip), and put `chrome.exe` et cetera in `cd-base/chromium/bin/`
 - then run, using...
 	- `cd src/carpe-datum-service/` && `npx tsx main.ts`
-	- run [`trigger-bap-execution-demo.js`](https://github.com/BenMullan/carpe-datum/blob/main/src/(resources)/extra-code/trigger-bap-execution-demo.js) to run the google-search-demo bap
+	- run [trigger-bap-execution-demo.js](https://github.com/BenMullan/carpe-datum/blob/main/src/(resources)/extra-code/trigger-bap-execution-demo.js) to run the google-search-demo bap
 
 ### How it worketh
 - A cd-server runs the `carpe-datum-service`, which listens for bap-execution requests on a http API.
@@ -61,7 +61,7 @@ Amongst the **most important code** is...
 - After execution, the execution endpoint (eg `GET /api/baps/google-search-demo/executions/67f36fb23c9e`) returns an object describing the execution-duration, -exit-reason, -error-state, and any process-output-data (eg a value scraped from the webpage).
 
 <br/>
-<b>In other words</b>, this prototype provides an interface for a process's input and output, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without you touching it once.
+<b>In other words</b>, this prototype provides an interface for a process's input- and output-data, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without you touching it once.
 
 <br/><br/><br/>
 _Ben Mullan 2024_
