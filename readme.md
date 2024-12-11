@@ -13,8 +13,7 @@ I spent 5 months with a process-automation team. They ran an amazing peice of [f
 <br/><br/>
 But it was precarious. And slow. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. It couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong. Data would be perilously plucked from inconsistenyly-formatted excel spreadsheets, and run through fragile type-coercion. I wanted to do better.
 <br/><br/>
-
-This prototype prooved that a process taking over **5 minutes** to run in Blue Prism, could be executed in **under 20 seconds** with JavaScript.
+This prototype prooved that a **5-minute** Blue Prism process could be executed in **under 20 seconds** with JavaScript.
 <br/><br/>
 
 ## *JavaScript*, you say...?
