@@ -2,12 +2,6 @@
 ...is a **prototype** headless-browser orchestration server (and impropper Latin for "seize the data").
 <br/><br/>
 
-> Watch the **["JavaScript in RPA" YouTube Video](https://youtu.be/PWyhuDJQEZw)!**
-<a href="https://youtu.be/PWyhuDJQEZw" target="_blank">
-	<img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/jsrpa-video-thumbnail.jpg" width="100%" />
-<a/>
-<br/><br/>
-
 ## Err... what's going on
 I spent 5 months with a process-automation team. They ran an amazing peice of [flowcharting software](https://www.google.com/search?q=blue+prism+automate+desktop+screenshot&tbm=isch) on a farm of VMs, to simulate mouse-clicks and keystrokes - and run processes automatically (eg data-entry into a web-based business system), without paying humans to perform them. This system was an at-once beguiling and stupyfying conflation of numerous bizzare and anachronistic technologies; Win32-spying, remote DOM-inspection, VB6-style expression functions, .NET Remoting, and even the obscure "Visual J#"!
 <br/><br/>
@@ -62,6 +56,12 @@ Amongst the **most important code** is...
 
 <br/>
 <b>In other words</b>, this prototype provides an interface for a process's input- and output-data, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without you touching it once.
+<br/><br/><br/>
+
+> Watch the **["JavaScript in RPA" YouTube Video](https://youtu.be/PWyhuDJQEZw)**
+<a href="https://youtu.be/PWyhuDJQEZw" target="_blank">
+	<img src="https://raw.githubusercontent.com/BenMullan/carpe-datum/main/src/(resources)/images/jsrpa-video-thumbnail.jpg" width="100%" />
+<a/>
 
 <br/><br/><br/>
 _Ben Mullan 2024_
