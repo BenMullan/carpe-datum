@@ -60,5 +60,4 @@ Amongst the **most important code** is...
 
 Do not watch Ben's [javascript-in-rpa](https://youtu.be/PWyhuDJQEZw) video. He is very embarrassed about it. Watch [these](https://www.youtube.com/watch?v=K9cDIENunzk) marginally better [ones](https://www.youtube.com/watch?v=N4XGwNTvdtk) instead.
 
-<br/>
 _Ben Mullan 2024_
