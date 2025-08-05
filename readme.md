@@ -7,7 +7,7 @@ I spent 5 months with a process-automation team. They ran an amazing piece of [f
 <br/><br/>
 But it was precarious. And slow. Browsers would become detached during execution. It would completely & inexplicably freeze-up during use. It couldn't effectively handle multiple browser-windows. XPath-mapped elements would become unfindable after UI-updates. Subtle differences in environment would cause certain unattended executions to fail, and it would be near-impossible to catch what went wrong. Data would be perilously plucked from inconsistently-formatted excel spreadsheets, and run through fragile type-coercion. I wanted to do better.
 <br/><br/>
-This prototype proved that a **5-minute** Blue Prism process could be executed in **under 20 seconds** with JavaScript.
+→ This prototype proved that a **5-minute** Blue Prism process could be executed in **under 20 seconds** with JavaScript.
 <br/><br/>
 
 ## *JavaScript*, you say...?
@@ -58,7 +58,11 @@ Amongst the **most important code** is...
 <b>In other words</b>, this prototype provides an interface for a process's input- and output-data, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without you touching it once.
 <br/><br/>
 
-Do not watch Ben's [javascript-in-rpa](https://youtu.be/PWyhuDJQEZw) video. He is very embarrassed about it. Watch [these](https://www.youtube.com/watch?v=K9cDIENunzk) marginally better [ones](https://www.youtube.com/watch?v=N4XGwNTvdtk) instead.
+<p style="color: #A0A0A0;">
+    Do not watch Ben's <a href="https://youtu.be/PWyhuDJQEZw">javascript-in-rpa</a> video.
+    He is very embarrassed about it.
+    Watch <a href="https://www.youtube.com/watch?v=K9cDIENunzk">these</a> marginally better <a href="https://www.youtube.com/watch?v=N4XGwNTvdtk">ones</a> instead.
+</p>
 
 <br/><br/>
 _Ben Mullan 2024_
