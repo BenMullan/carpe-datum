@@ -58,11 +58,7 @@ Amongst the **most important code** is...
 <b>In other words</b>, this prototype provides an interface for a process's input- and output-data, which is completely abstracted from the nitty-gritty of the process's execution. You don't have to <i>see</i> the process - and it doesn't even have to run on <i>your</i> computer; as long as it's robustly implemented in JavaScript, it can heedfully process as much data as you fancy, without you touching it once.
 <br/><br/>
 
-<p style="color: #A0A0A0;">
-    Do not watch Ben's <a href="https://youtu.be/PWyhuDJQEZw">javascript-in-rpa</a> video.
-    He is very embarrassed about it.
-    Watch <a href="https://www.youtube.com/watch?v=K9cDIENunzk">these</a> marginally better <a href="https://www.youtube.com/watch?v=N4XGwNTvdtk">ones</a> instead.
-</p>
+Do not watch Ben's [javascript-in-rpa](https://youtu.be/PWyhuDJQEZw) video. He is very embarrassed about it. Watch [these](https://www.youtube.com/watch?v=K9cDIENunzk) marginally better [ones](https://www.youtube.com/watch?v=N4XGwNTvdtk) instead.
 
-<br/><br/>
+<br/>
 _Ben Mullan 2024_
